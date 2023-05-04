@@ -1,0 +1,21 @@
+metric: RBOX
+num_classes: 1
+
+TrainDataset:
+  !COCODataSet
+    image_dir: train/images
+    anno_path: train/uav_rod_train.json
+    dataset_dir: dataset/UAV_ROD_Data/
+    data_fields: ['image', 'gt_bbox', 'gt_class', 'is_crowd', 'gt_poly']
+
+EvalDataset:
+  !COCODataSet
+    image_dir: test/images
+    anno_path: test/uav_rod_test.json
+    dataset_dir: dataset/UAV_ROD_Data/
+    data_fields: ['image', 'gt_bbox', 'gt_class', 'is_crowd', 'gt_poly']
+
+TestDataset:
+  !ImageFolder
+    anno_path: test/uav_rod_test.json
+    dataset_dir: dataset/UAV_ROD_Data/
